@@ -27,7 +27,7 @@ import {
 
 // --- Design System Components (Slate Theme) ---
 
-const Card = ({ children, className = "", onClick }: { children: React.ReactNode, className?: string, onClick?: () => void }) => (
+const Card: React.FC<{ children?: React.ReactNode, className?: string, onClick?: () => void }> = ({ children, className = "", onClick }) => (
   <div 
     onClick={onClick}
     className={`bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl overflow-hidden ${onClick ? 'cursor-pointer hover:bg-slate-800/80 transition-colors' : ''} ${className}`}
@@ -36,7 +36,7 @@ const Card = ({ children, className = "", onClick }: { children: React.ReactNode
   </div>
 );
 
-const Badge = ({ children, type = 'neutral' }: { children: React.ReactNode, type?: 'positive' | 'negative' | 'warning' | 'neutral' | 'purple' }) => {
+const Badge: React.FC<{ children?: React.ReactNode, type?: 'positive' | 'negative' | 'warning' | 'neutral' | 'purple' }> = ({ children, type = 'neutral' }) => {
   const colors = {
     positive: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
     negative: 'bg-rose-500/20 text-rose-400 border-rose-500/30',
@@ -63,7 +63,7 @@ const renderChange = (change: number, percent: number) => {
   );
 };
 
-const StockCard = ({ stock, onClick, isOpportunity }: { stock: StockData, onClick: () => void, isOpportunity?: boolean }) => (
+const StockCard: React.FC<{ stock: StockData, onClick: () => void, isOpportunity?: boolean }> = ({ stock, onClick, isOpportunity }) => (
   <Card onClick={onClick} className="mb-3">
     <div className="p-4">
         <div className="flex justify-between items-start mb-3">

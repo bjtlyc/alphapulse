@@ -4,15 +4,15 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // IMPORTANT: Replace 'alphapulse' with your actual GitHub repository name
-  // If your repo is https://github.com/username/my-stock-app, change this to '/my-stock-app/'
-  base: './', 
+  // IMPORTANT: Matches your GitHub repository name
+  base: '/alphapulse/', 
   build: {
     outDir: 'dist',
     sourcemap: false
   },
   define: {
-    // This ensures process.env works in the browser for the API key
-    'process.env': process.env
+    // This prevents "process is not defined" crashes in the browser.
+    // It initializes process.env as an empty object.
+    'process.env': {}
   }
 });
